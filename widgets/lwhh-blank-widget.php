@@ -69,6 +69,20 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function _register_controls() {
 
+		$this->register_content_controls();
+		$this->register_style_controls();
+
+	}
+
+	/**
+	 * Register Blank widget content ontrols.
+	 *
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 */
+	function register_content_controls() {
 		$this->start_controls_section(
 			'content_section',
 			[
@@ -88,15 +102,12 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 		);
 
 		$this->end_controls_section();
-
-		$this->register_style_controls();
-
 	}
 
 	/**
 	 * Register Blank widget style ontrols.
 	 *
-	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 * Adds different input fields in the style tab to allow the user to change and customize the widget settings.
 	 *
 	 * @since 1.0.0
 	 * @access protected
@@ -114,9 +125,9 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'color',
 			[
-				'label'      => __( 'Color', 'ebe' ),
-				'type'       => \Elementor\Controls_Manager::COLOR,
-				'default'    => '#ff0000',
+				'label'     => __( 'Color', 'ebe' ),
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'default'   => '#ff0000',
 				'selectors' => [
 					'{{WRAPPER}} .dummy_text' => 'color: {{VALUE}}'
 				]
@@ -126,9 +137,9 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 		$this->add_group_control(
 			\Elementor\Group_Control_Typography::get_type(),
 			[
-				'name' => 'content_typography',
-				'label' => __( 'Typography', 'ebe' ),
-				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'name'     => 'content_typography',
+				'label'    => __( 'Typography', 'ebe' ),
+				'scheme'   => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .dummy_text',
 			]
 		);
@@ -147,12 +158,12 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render() {
 
-		$settings = $this->get_settings_for_display(); //and echo $settings['dummy_text']
-		$dummy_text= $this->get_settings('dummy_text');
-		$this->add_render_attribute('dummy_text','class','dummy_text');
-		$this->add_inline_editing_attributes('dummy_text');
+		$settings   = $this->get_settings_for_display(); //and echo $settings['dummy_text']
+		$dummy_text = $this->get_settings( 'dummy_text' );
+		$this->add_render_attribute( 'dummy_text', 'class', 'dummy_text' );
+		$this->add_inline_editing_attributes( 'dummy_text' );
 		?>
-		<div <?php echo $this->get_render_attribute_string('dummy_text') ?>> <?php echo esc_html($dummy_text); ?></div>
+        <div <?php echo $this->get_render_attribute_string( 'dummy_text' ) ?>> <?php echo esc_html( $dummy_text ); ?></div>
 		<?php
 
 
@@ -167,10 +178,10 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 	 * @access protected
 	 */
 	protected function _content_template() {
-		$this->add_render_attribute('dummy_text','class','dummy_text');
-		$this->add_inline_editing_attributes('dummy_text','none');
+		$this->add_render_attribute( 'dummy_text', 'class', 'dummy_text' );
+		$this->add_inline_editing_attributes( 'dummy_text', 'none' );
 		?>
-			<div <?php echo $this->get_render_attribute_string('dummy_text') ?>> {{ settings.dummy_text }}</div>
+        <div <?php echo $this->get_render_attribute_string( 'dummy_text' ) ?>> {{ settings.dummy_text }}</div>
 		<?php
 	}
 
