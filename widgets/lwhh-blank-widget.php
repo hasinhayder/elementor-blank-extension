@@ -106,7 +106,7 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'style_section',
 			[
-				'label' => __( 'Common', 'ebe' ),
+				'label' => __( 'Text Style', 'ebe' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -120,6 +120,16 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 				'selectors' => [
 					'{{WRAPPER}} .dummy_text' => 'color: {{VALUE}}'
 				]
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'content_typography',
+				'label' => __( 'Typography', 'ebe' ),
+				'scheme' => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'selector' => '{{WRAPPER}} .dummy_text',
 			]
 		);
 
