@@ -98,6 +98,7 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'input_type'  => 'text',
 				'placeholder' => __( 'Some Dummy Text', 'ebe' ),
+				'default'     => __( 'Elementor Blank Widget', 'ebe' ),
 			]
 		);
 
