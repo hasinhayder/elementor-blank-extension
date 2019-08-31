@@ -149,7 +149,8 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 
 		$settings = $this->get_settings_for_display(); //and echo $settings['dummy_text']
 		$dummy_text= $this->get_settings('dummy_text');
-		$this->add_render_attribute('dummy_text','class','dummy_text')
+		$this->add_render_attribute('dummy_text','class','dummy_text');
+		$this->add_inline_editing_attributes('dummy_text');
 		?>
 		<div <?php echo $this->get_render_attribute_string('dummy_text') ?>> <?php echo esc_html($dummy_text); ?></div>
 		<?php
@@ -166,7 +167,8 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 	 * @access protected
 	 */
 	protected function _content_template() {
-		$this->add_render_attribute('dummy_text','class','dummy_text')
+		$this->add_render_attribute('dummy_text','class','dummy_text');
+		$this->add_inline_editing_attributes('dummy_text','none');
 		?>
 			<div <?php echo $this->get_render_attribute_string('dummy_text') ?>> {{ settings.dummy_text }}</div>
 		<?php
