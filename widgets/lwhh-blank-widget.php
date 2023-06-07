@@ -140,7 +140,7 @@ class LWHH_Blank_Widget extends \Elementor\Widget_Base {
 			[
 				'name'     => 'content_typography',
 				'label'    => __( 'Typography', 'ebe' ),
-				'scheme'   => \Elementor\Scheme_Typography::TYPOGRAPHY_1,
+				'scheme'   => \Elementor\Core\Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .dummy_text',
 			]
 		);
